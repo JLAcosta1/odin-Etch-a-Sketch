@@ -21,9 +21,41 @@ function buildSquares () {
     rows.forEach(row => {
         for (i = 0; i < 16; i ++) {
             div = document.createElement('div');
-            div.setAttribute('class', 'square')
+            div.setAttribute('class', 'square');
 
-            row.appendChild(div)
+            if (rows[0] === row) {
+                div.setAttribute('class', 'square top');
+
+                if (i == 0) {
+                    div.setAttribute('class', 'square top first');
+                }
+        
+                if (i == 15) {
+                    div.setAttribute('class', 'square top last');
+                }
+            }
+
+            else if (rows[15] === row) {
+                div.setAttribute('class', 'square bottom');
+
+                if (i == 0) {
+                    div.setAttribute('class', 'square bottom first');
+                }
+        
+                if (i == 15) {
+                    div.setAttribute('class', 'square bottom last');
+                }
+            }
+
+            else if (i == 0) {
+                div.setAttribute('class', 'square first');
+            }
+    
+            else if (i == 15) {
+                div.setAttribute('class', 'square last');
+            }
+
+            row.appendChild(div);
         }
     })
 

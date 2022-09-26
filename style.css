@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.square {
+    background: white;
+    border: .5px solid black;
+    height: 30px;
+    max-width: 30px;
+    flex: 1;
+}
+
+.first {
+    border-left: 2px solid black;
+}
+
+.top {
+    border-top: 2px solid black;
+}
+
+.last {
+    border-right: 2px solid black;
+}
+
+.bottom {
+    border-bottom: 2px solid black;
+}
