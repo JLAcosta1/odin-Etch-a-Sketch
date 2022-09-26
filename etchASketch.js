@@ -58,10 +58,18 @@ function buildSquares () {
             row.appendChild(div);
         }
     })
+}
 
 
-
+function changeBackgroundColor () {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'black';
+        });
+    });
 }
 
 buildRows();
 buildSquares();
+changeBackgroundColor();
