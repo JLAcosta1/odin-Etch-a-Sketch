@@ -1,3 +1,5 @@
+let rainbow = false;
+
 let container = document.querySelector('body');
 let div = document.createElement('div');
 
@@ -72,15 +74,43 @@ function buildSquares (x = 16) {
     })
 }
 
+function newColor() {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    const randomColorString = "#" + randomColor
+    
+    return randomColorString;
+}
 
 function changeBackgroundColor () {
     const squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
-        square.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = 'black';
-        });
+        if (rainbow == true) {
+            square.addEventListener('mouseover', (e) => {
+                e.target.style.backgroundColor = newColor();
+            });
+        }
+        else {
+            square.addEventListener('mouseover', (e) => {
+                e.target.style.backgroundColor = 'black';
+            });
+        }
     });
 }
+
+function setBoolean() {
+
+    console.log('hello');
+    if (rainbow == false) {
+        rainbow = true
+    }
+    else {
+        rainbow = false
+    }
+    console.log(rainbow)
+    changeBackgroundColor();
+}
+
+rainbowButton.addEventListener("click", setBoolean, changeBackgroundColor);
 
 buildRows();
 buildSquares();
